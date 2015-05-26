@@ -29,6 +29,7 @@ CREATE TABLE `characters` (
   `faction` varchar(32) DEFAULT NULL,
   PRIMARY KEY (`char_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Table structure for table `deaths`
@@ -39,7 +40,7 @@ DROP TABLE IF EXISTS `deaths`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `deaths` (
   `death_id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
-  `victim` mediumint(8) unsigned NOT NULL DEFAULT '0',
+  `victim_id` mediumint(8) unsigned NOT NULL DEFAULT '0',
   `setting` varchar(32) DEFAULT NULL,
   `date` datetime DEFAULT NULL,
   `cause_of_death` varchar(64) DEFAULT NULL,
@@ -71,9 +72,10 @@ DROP TABLE IF EXISTS `killings`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `killings` (
-  `death_id` mediumint(8) unsigned NOT NULL,
+  `victim_id` mediumint(8) unsigned NOT NULL DEFAULT '0',
   `killer_id` mediumint(8) unsigned NOT NULL,
-  PRIMARY KEY (`death_id`,`killer_id`)
+  `death_ID` mediumint(8) unsigned NOT NULL DEFAULT '0',
+  PRIMARY KEY (`victim_id`,`killer_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -103,4 +105,4 @@ CREATE TABLE `relationships` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-05-25 15:32:56
+-- Dump completed on 2015-05-25 19:15:27
