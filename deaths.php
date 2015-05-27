@@ -5,6 +5,10 @@ $dsn = 'mysql:host=localhost;dbname=openrpg';
 $pdo = new PDO($dsn, $db_username, $db_password);
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
+function print_dump($var){
+	echo "<pre>\n"; var_dump($var); echo "</pre>\n";
+}
+
 function sanitize_form_string($string){
 	$string = strip_tags($string);
 	$string = htmlentities($string);	
@@ -16,9 +20,18 @@ function make_select_element($name, $size){
 	$sql_count = "SELECT COUNT(char_id) FROM characters; ";
 	$count_statement = $pdo->query($sql_count);
 	$rows = $count_statement->fetchColumn();
+									// this selects all characters
+									// including dead ones
+	$sql_select = "SELECT c.char_id, c.char_name, d.victim_id 
+		FROM characters as c LEFT JOIN deaths as d 
+		ON c.char_id=d.victim_id
+		WHERE d.victim_id IS NULL; "; 
 
-	$sql_select = "SELECT char_id, char_name FROM characters; "; 
+try{
 	$result_statement = $pdo->query($sql_select);
+} catch (PDOException $e){
+	print_dump($e);
+}
 
 	if ($rows < 10) {
 		$select = "<select name=\"$name\" size=\"$rows\"> \n";
@@ -38,18 +51,19 @@ function make_select_element($name, $size){
 if ($_GET)
 {
 	$death_id = 0;
-	$victim = (int)sanitize_form_string($_GET['victim']);
-	$killer = (int)sanitize_form_string($_GET['killer']);
+	$victim = sanitize_form_string($_GET['victim']);
+	$killer = sanitize_form_string($_GET['killer']);
 	$location = sanitize_form_string($_GET['location']);
 	$date = date('Y:m:d');
 	$cause_of_death = sanitize_form_string($_GET['cause_of_death']);
+	$removed_from_play = true;	
 try {
 	$pdo->beginTransaction();
 
-	$sql_for_deaths_table = "INSERT INTO deaths VALUES (?,?,?,?,?)";
+	$sql_for_deaths_table = "INSERT INTO deaths VALUES (?,?,?,?,?,?)";
 	$statement = $pdo->prepare($sql_for_deaths_table);
-	$statement->execute(array($death_id, $victim, $location, $date, $cause_of_death));
-	$statment = null;
+	$statement->execute(array($death_id, $victim, $location, $date, $cause_of_death, $removed_from_play));
+	$statement = null;
 
 	$sql_retrieve_count = "SELECT COUNT(*) FROM deaths;";
 	$result = $pdo->query($sql_retrieve_count);
@@ -61,6 +75,9 @@ try {
 	$sql_for_killings_table;
 	$statement = $pdo->prepare($sql_for_killings_table);
 	$statement->execute(array($victim, $killer, $death_id_on_killings_table));
+
+	$pdo->commit();
+
 
 } catch (PDOException $e){
 	$pdo->rollBack();
@@ -94,7 +111,7 @@ label {
 
 <body>
 <!-- record a death 
-	<?php //if ($error) echo "<p>$error</p>\n"; ?>
+	<?php if ($error) echo "<p>$error</p>\n"; ?>
 -->
 	<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="get">
 		<p>

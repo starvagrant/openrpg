@@ -44,8 +44,11 @@ CREATE TABLE `deaths` (
   `setting` varchar(32) DEFAULT NULL,
   `date` datetime DEFAULT NULL,
   `cause_of_death` varchar(64) DEFAULT NULL,
-  PRIMARY KEY (`death_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
+  `removed_from_play` tinyint(1) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`death_id`),
+  KEY `victim_id` (`victim_id`),
+  CONSTRAINT `deaths_ibfk_1` FOREIGN KEY (`victim_id`) REFERENCES `characters` (`char_id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -73,9 +76,13 @@ DROP TABLE IF EXISTS `killings`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `killings` (
   `victim_id` mediumint(8) unsigned NOT NULL DEFAULT '0',
-  `killer_id` mediumint(8) unsigned NOT NULL,
-  `death_ID` mediumint(8) unsigned NOT NULL DEFAULT '0',
-  PRIMARY KEY (`victim_id`,`killer_id`)
+  `killer_id` mediumint(8) unsigned NOT NULL DEFAULT '0',
+  `death_id` mediumint(8) unsigned NOT NULL DEFAULT '0',
+  PRIMARY KEY (`victim_id`,`killer_id`),
+  KEY `victim_id` (`victim_id`),
+  KEY `killer_id` (`killer_id`),
+  CONSTRAINT `killings_ibfk_1` FOREIGN KEY (`victim_id`) REFERENCES `characters` (`char_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `killings_ibfk_2` FOREIGN KEY (`killer_id`) REFERENCES `characters` (`char_id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -105,4 +112,4 @@ CREATE TABLE `relationships` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-05-25 19:15:27
+-- Dump completed on 2015-05-27 12:21:02
