@@ -1,25 +1,24 @@
 <?php
 require 'login.php';
 
-$db_database = 'openrpg';
-$connection = new mysqli($db_hostname, $db_username, $db_password, $db_database);
+$dsn = 'mysql:host=localhost;dbname=openrpg';
+$pdo = new PDO($dsn, $db_username, $db_password);
+$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 function sanitize_form_string($string){
-	global $connection;
 	$string = strip_tags($string);
-	$string = stripslashes($string);
 	$string = htmlentities($string);	
-	$string = $connection->mysql_real_escape_string($string);
 	return $string;
 }
 
 function make_select_element($name, $size){
-	global $connection;
-	$sql_select = "SELECT char_id,char_name from characters; ";
-	$result = $connection->query($sql_select);
+	global $pdo;
+	$sql_count = "SELECT COUNT(char_id) FROM characters; ";
+	$count_statement = $pdo->query($sql_count);
+	$rows = $count_statement->fetchColumn();
 
-	if (!$result) die('connection failed');
-	$rows = $result->num_rows;
+	$sql_select = "SELECT char_id, char_name FROM characters; "; 
+	$result_statement = $pdo->query($sql_select);
 
 	if ($rows < 10) {
 		$select = "<select name=\"$name\" size=\"$rows\"> \n";
@@ -27,9 +26,7 @@ function make_select_element($name, $size){
 		$select = "<select name=\"$name\" size=\"10\"> \n";
 	}
 
-	for ($i = 0; $i < $rows; $i++){
-		$result->data_seek($i);
-		$row = $result->fetch_array(MYSQLI_ASSOC);
+	while ($row = $result_statement->fetch()){
 		$option_text = $row['char_name'];
 		$option_value = $row['char_id'];
 		$select .= "\t <option value=\"$option_value\">$option_text</option> \n";
@@ -37,12 +34,48 @@ function make_select_element($name, $size){
 
 	$select .= "</select>";
 	echo $select;
-	$result->close();
 }
 if ($_GET)
 {
-		
+	$death_id = 0;
+	$victim = (int)sanitize_form_string($_GET['victim']);
+	$killer = (int)sanitize_form_string($_GET['killer']);
+	$location = sanitize_form_string($_GET['location']);
+	$date = date('Y:m:d');
+	$cause_of_death = sanitize_form_string($_GET['cause_of_death']);
+try {
+	$pdo->beginTransaction();
+
+	$sql_for_deaths_table = "INSERT INTO deaths VALUES (?,?,?,?,?)";
+	$statement = $pdo->prepare($sql_for_deaths_table);
+	$statement->execute(array($death_id, $victim, $location, $date, $cause_of_death));
+	$statment = null;
+
+	$sql_retrieve_count = "SELECT COUNT(*) FROM deaths;";
+	$result = $pdo->query($sql_retrieve_count);
+	$row = $result->fetch();
+	$death_id_on_killings_table = (int)$row[0]; // returns count(*)
+	if (!$result) die ('query did not work');
+
+	$sql_for_killings_table = "INSERT INTO killings VALUES(?,?,?);";
+	$sql_for_killings_table;
+	$statement = $pdo->prepare($sql_for_killings_table);
+	$statement->execute(array($victim, $killer, $death_id_on_killings_table));
+
+} catch (PDOException $e){
+	$pdo->rollBack();
+	$error = $e->getMessage();
 }
+} // end if
+/*
+ 	} else {
+		ob_start();
+		var_dump($statement);
+		$a=ob_get_contents();
+		error_log($a);
+		ob_end_clean();
+	}
+*/
 
 ?>
 
@@ -60,7 +93,9 @@ label {
 </head>
 
 <body>
-<!-- record a death -->
+<!-- record a death 
+	<?php //if ($error) echo "<p>$error</p>\n"; ?>
+-->
 	<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="get">
 		<p>
 			<label>Who died?
@@ -71,7 +106,6 @@ label {
 			</label>
 		</p>
 		<p>
-			<button type="submit"> Submit </button>
 			<label> Location 
 				<input type="text" name="location" maxlength="28" />
 			</label>
@@ -81,6 +115,7 @@ label {
 				<textarea name="cause_of_death" cols=20 rows=3> </textarea>
 			</label>
 		</p>
+		<button type="submit"> Submit </button>
 	</form>
 </body>
 </html>
