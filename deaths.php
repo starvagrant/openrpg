@@ -15,34 +15,62 @@ function sanitize_form_string($string){
 	return $string;
 }
 
-function make_select_element($name, $size){
-	global $pdo;
-	$sql_count = "SELECT COUNT(char_id) FROM characters; ";
+function get_result_statement($pdo, $query){
+	try { $result_statement = $pdo->query($query); } 
+	catch (PDOException $e) {
+		$error = $e->get_message();
+	}
+	return $result_statement;
+}
+
+function make_named_query($name) {
+	// remember order of select names is important.
+	// first value option value, second option text	
+	switch ($name){
+	case 'killer':
+	case 'victim':
+		$sql_select = "SELECT c.char_id, c.char_name, d.victim_id 
+			FROM characters as c LEFT JOIN deaths as d 
+			ON c.char_id=d.victim_id
+			WHERE d.victim_id IS NULL; "; 
+		return $sql_select;
+	break;
+	case 'death':
+		$sql_select = "SELECT death_code, name from death_codes; ";
+		return $sql_select;
+	break;
+	default:
+		return "";
+	break;
+	}
+}
+
+function make_select_element($pdo, $name, $size, $table){
+	$sql_count = "SELECT COUNT(*) FROM $table; ";
 	$count_statement = $pdo->query($sql_count);
 	$rows = $count_statement->fetchColumn();
 									// this selects all characters
 									// including dead ones
-	$sql_select = "SELECT c.char_id, c.char_name, d.victim_id 
-		FROM characters as c LEFT JOIN deaths as d 
-		ON c.char_id=d.victim_id
-		WHERE d.victim_id IS NULL; "; 
+	$sql_select = make_named_query($name);
+	$result_statement = get_result_statement($pdo, $sql_select); 	
 
-try{
-	$result_statement = $pdo->query($sql_select);
-} catch (PDOException $e){
-	print_dump($e);
-}
-
-	if ($rows < 10) {
+	if ($rows < $size) {
 		$select = "<select name=\"$name\" size=\"$rows\"> \n";
 	} else {
-		$select = "<select name=\"$name\" size=\"10\"> \n";
+		$select = "<select name=\"$name\" size=\"$size\"> \n";
 	}
-
+	
+	$selected = 0;	
 	while ($row = $result_statement->fetch()){
-		$option_text = $row['char_name'];
-		$option_value = $row['char_id'];
-		$select .= "\t <option value=\"$option_value\">$option_text</option> \n";
+		// rows have been ordered via the maked_name_query function
+		$option_value = $row[0];
+		$option_text = $row[1];
+		if ($selected == 0){
+			$select .= "\t <option value=\"$option_value\" selected>$option_text</option> \n";
+		} else {
+			$select .= "\t <option value=\"$option_value\">$option_text</option> \n";
+		}	
+	$selected++;
 	} 
 
 	$select .= "</select>";
@@ -56,13 +84,13 @@ if ($_GET)
 	$location = sanitize_form_string($_GET['location']);
 	$date = date('Y:m:d');
 	$cause_of_death = sanitize_form_string($_GET['cause_of_death']);
-	$removed_from_play = true;	
+	$death_code = sanitize_form_string($_GET['death_code']);
 try {
 	$pdo->beginTransaction();
 
 	$sql_for_deaths_table = "INSERT INTO deaths VALUES (?,?,?,?,?,?)";
 	$statement = $pdo->prepare($sql_for_deaths_table);
-	$statement->execute(array($death_id, $victim, $location, $date, $cause_of_death, $removed_from_play));
+	$statement->execute(array($death_id, $victim, $location, $date, $cause_of_death, $death_code));
 	$statement = null;
 
 	$sql_retrieve_count = "SELECT COUNT(*) FROM deaths;";
@@ -110,16 +138,21 @@ label {
 </head>
 
 <body>
-<!-- record a death 
 	<?php if ($error) echo "<p>$error</p>\n"; ?>
+
+<!-- 
 -->
 	<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="get">
 		<p>
 			<label>Who died?
-				<?php make_select_element('victim', 10); ?>
+				<?php make_select_element($pdo, 'victim', 10, 'characters'); print($select); ?>
 			</label>
 			<label> Who's the killer?
-				<?php make_select_element('killer', 10); ?>
+				<?php make_select_element($pdo, 'killer', 10, 'characters'); print($select); ?>
+			</label>
+		<p>
+			<label> Type of Death	
+				<?php make_select_element($pdo, 'death', 6, 'death_codes'); print($select); ?>
 			</label>
 		</p>
 		<p>
