@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+	<meta charset="utf-8">
+<title>Candidates For Super Pac</title>
+<style>
+ul {
+	margin-left: 5%;
+
+}
+ul#candidate li {
+	width: 600px;
+	float: left;
+	clear: both;
+	list-style-type: none;
+}
+
+ul#explanation-list li {
+	width: 600px;
+	float: left;
+	clear: both;
+	list-style-type: none;
+}
+p {
+
+	float: left;
+	clear: both;
+}	
+	
+</style>
+</head>
+
+<body>
+<ul id="candidate">
+	<li><span id="candid_name">Click For Info</span></li>
+	<li><span id="military">Click For Info</span></li>
+	<li><span id="economic_stability">Click For Info</span></li>
+	<li><span id="infrastructure">Click For Info</span></li>
+	<li><span id="nationalism">Click For Info</span></li>
+	<li><span id="energy_intensity">Click For Info</span></li>
+</ul>
+	<p>All candidates have sentiments regarding the following national policies:</p>
+<ul id="explanation-list">
+	<li>Military: prefers war / peace
+	<li>Economic Stability: prefers a stable economy / economic booms and busts</li>	
+	<li>Infrastructre: prefers investment in infrastructure / austerity</li>	
+	<li>Nationalism: prefers a national government / multinational corporations</li>	
+	<li>Energy Intensity: prefers heavy fossil fuel use / conservation</li>	
+</ul>
+<script>
+console.log('script running');
+var candidateArray = [ 
+		{ "candidate" : "Lindsey Grime",
+		"stats" : { 
+			"military": "-3", 
+			"economic_stability": "1", 
+			"infrastructure": "3", 
+			"nationalism": "-1",  
+			"energy_intensity": "4" }
+		}, 		{ "candidate" : "John Diligent",
+		"stats" : { 
+			"military": "3", 
+			"economic_stability": "-4", 
+			"infrastructure": "3", 
+			"nationalism": "0",  
+			"energy_intensity": "0" }
+		}, 		{ "candidate" : "Marilyn McMansion",
+		"stats" : { 
+			"military": "1", 
+			"economic_stability": "3", 
+			"infrastructure": "-4", 
+			"nationalism": "2",  
+			"energy_intensity": "-2" }
+		}, 		{ "candidate" : "Gordon Prescott",
+		"stats" : { 
+			"military": "-2", 
+			"economic_stability": "2", 
+			"infrastructure": "-1", 
+			"nationalism": "0",  
+			"energy_intensity": "-5" }
+		}, 		{ "candidate" : "Ronald Frump",
+		"stats" : { 
+			"military": "-5", 
+			"economic_stability": "-2", 
+			"infrastructure": "3", 
+			"nationalism": "0",  
+			"energy_intensity": "-4" }
+		}, 		{ "candidate" : "Ali Johnson",
+		"stats" : { 
+			"military": "-2", 
+			"economic_stability": "-2", 
+			"infrastructure": "0", 
+			"nationalism": "1",  
+			"energy_intensity": "-5" }
+		}, 		{ "candidate" : "Jonathon Creed",
+		"stats" : { 
+			"military": "0", 
+			"economic_stability": "4", 
+			"infrastructure": "1", 
+			"nationalism": "-3",  
+			"energy_intensity": "-2" }
+		}, 		{ "candidate" : "Major Surgery",
+		"stats" : { 
+			"military": "-1", 
+			"economic_stability": "-5", 
+			"infrastructure": "-1", 
+			"nationalism": "-3",  
+			"energy_intensity": "1" }
+		}, 		{ "candidate" : "Alex Campbell",
+		"stats" : { 
+			"military": "5", 
+			"economic_stability": "4", 
+			"infrastructure": "-2", 
+			"nationalism": "-4",  
+			"energy_intensity": "0" }
+		}, 		{ "candidate" : "Gordon Moore",
+		"stats" : { 
+			"military": "1", 
+			"economic_stability": "-1", 
+			"infrastructure": "-4", 
+			"nationalism": "-5",  
+			"energy_intensity": "5" }
+		}, 		{ "candidate" : "Tom Halfhill",
+		"stats" : { 
+			"military": "-3", 
+			"economic_stability": "-4", 
+			"infrastructure": "-2", 
+			"nationalism": "5",  
+			"energy_intensity": "2" }
+		}, 		{ "candidate" : "Lisa Su",
+		"stats" : { 
+			"military": "-1", 
+			"economic_stability": "-2", 
+			"infrastructure": "5", 
+			"nationalism": "5",  
+			"energy_intensity": "5" }
+		}, 		{ "candidate" : "Gabe Newell",
+		"stats" : { 
+			"military": "-5", 
+			"economic_stability": "-1", 
+			"infrastructure": "4", 
+			"nationalism": "2",  
+			"energy_intensity": "2" }
+		}, 		{ "candidate" : "Tuan Nguyen",
+		"stats" : { 
+			"military": "-4", 
+			"economic_stability": "-4", 
+			"infrastructure": "2", 
+			"nationalism": "1",  
+			"energy_intensity": "-2" }
+		}, 		{ "candidate" : "Patricia Petrovich",
+		"stats" : { 
+			"military": "-2", 
+			"economic_stability": "1", 
+			"infrastructure": "-4", 
+			"nationalism": "1",  
+			"energy_intensity": "2" }
+		}, 		{ "candidate" : "Penelope Hermann",
+		"stats" : { 
+			"military": "2", 
+			"economic_stability": "-3", 
+			"infrastructure": "-4", 
+			"nationalism": "4",  
+			"energy_intensity": "-3" }
+		}, 		{ "candidate" : "Hunter Blake",
+		"stats" : { 
+			"military": "-5", 
+			"economic_stability": "-5", 
+			"infrastructure": "-1", 
+			"nationalism": "-2",  
+			"energy_intensity": "-5" }
+		}, 		{ "candidate" : "Horishi Uyuktati",
+		"stats" : { 
+			"military": "-5", 
+			"economic_stability": "3", 
+			"infrastructure": "-1", 
+			"nationalism": "5",  
+			"energy_intensity": "2" }
+		}, 		{ "candidate" : "Raul Gonzalez",
+		"stats" : { 
+			"military": "-1", 
+			"economic_stability": "-5", 
+			"infrastructure": "-4", 
+			"nationalism": "-3",  
+			"energy_intensity": "2" }
+		}, 		{ "candidate" : "Captain Obvious",
+		"stats" : { 
+			"military": "4", 
+			"economic_stability": "-1", 
+			"infrastructure": "3", 
+			"nationalism": "0",  
+			"energy_intensity": "5" }
+		}, 		{ "candidate" : "Squiggle Magoo",
+		"stats" : { 
+			"military": "-4", 
+			"economic_stability": "4", 
+			"infrastructure": "0", 
+			"nationalism": "-3",  
+			"energy_intensity": "-1" }
+		}, 		{ "candidate" : "General Dismay",
+		"stats" : { 
+			"military": "-3", 
+			"economic_stability": "5", 
+			"infrastructure": "1", 
+			"nationalism": "-2",  
+			"energy_intensity": "3" }
+		}, 		{ "candidate" : "Lieutenant Housing",
+		"stats" : { 
+			"military": "4", 
+			"economic_stability": "-2", 
+			"infrastructure": "4", 
+			"nationalism": "-3",  
+			"energy_intensity": "2" }
+		}, 		{ "candidate" : "Susun Walker",
+		"stats" : { 
+			"military": "0", 
+			"economic_stability": "0", 
+			"infrastructure": "-5", 
+			"nationalism": "0",  
+			"energy_intensity": "2" }
+		}, 		{ "candidate" : "Keisha Sutherland",
+		"stats" : { 
+			"military": "1", 
+			"economic_stability": "1", 
+			"infrastructure": "5", 
+			"nationalism": "-2",  
+			"energy_intensity": "-4" }
+		}, 		{ "candidate" : "Malcolm Brown",
+		"stats" : { 
+			"military": "4", 
+			"economic_stability": "-2", 
+			"infrastructure": "-4", 
+			"nationalism": "-2",  
+			"energy_intensity": "-1" }
+		}, 		{ "candidate" : "Stan Oppenheimer",
+		"stats" : { 
+			"military": "-4", 
+			"economic_stability": "5", 
+			"infrastructure": "-1", 
+			"nationalism": "3",  
+			"energy_intensity": "1" }
+		}, 		{ "candidate" : "Jamal White",
+		"stats" : { 
+			"military": "4", 
+			"economic_stability": "5", 
+			"infrastructure": "-4", 
+			"nationalism": "-3",  
+			"energy_intensity": "-5" }
+		}, 		{ "candidate" : "Soledad Cancion",
+		"stats" : { 
+			"military": "-3", 
+			"economic_stability": "5", 
+			"infrastructure": "0", 
+			"nationalism": "-3",  
+			"energy_intensity": "-5" }
+		}, 		{ "candidate" : "Julieene Antoinette",
+		"stats" : { 
+			"military": "3", 
+			"economic_stability": "3", 
+			"infrastructure": "-4", 
+			"nationalism": "-2",  
+			"energy_intensity": "0" }
+		}, 		{ "candidate" : "Gweneth Macfarland",
+		"stats" : { 
+			"military": "5", 
+			"economic_stability": "4", 
+			"infrastructure": "-5", 
+			"nationalism": "4",  
+			"energy_intensity": "-4" }
+		}, 		{ "candidate" : "Chad Nicholson ",
+		"stats" : { 
+			"military": "-4", 
+			"economic_stability": "3", 
+			"infrastructure": "0", 
+			"nationalism": "-2",  
+			"energy_intensity": "-5" }
+		}, 		{ "candidate" : "Aaron Butterly",
+		"stats" : { 
+			"military": "5", 
+			"economic_stability": "0", 
+			"infrastructure": "-5", 
+			"nationalism": "-2",  
+			"energy_intensity": "-3" }
+		}, 		{ "candidate" : "Aluminum Khan",
+		"stats" : { 
+			"military": "1", 
+			"economic_stability": "-3", 
+			"infrastructure": "-3", 
+			"nationalism": "2",  
+			"energy_intensity": "0" }
+		}, 		{ "candidate" : "Pugnacious D",
+		"stats" : { 
+			"military": "-3", 
+			"economic_stability": "5", 
+			"infrastructure": "-1", 
+			"nationalism": "2",  
+			"energy_intensity": "-4" }
+		}, 		{ "candidate" : "Ellen Degenerate-1",
+		"stats" : { 
+			"military": "0", 
+			"economic_stability": "5", 
+			"infrastructure": "1", 
+			"nationalism": "3",  
+			"energy_intensity": "0" }
+		}, 		{ "candidate" : "Victoria Estates-1",
+		"stats" : { 
+			"military": "0", 
+			"economic_stability": "2", 
+			"infrastructure": "-1", 
+			"nationalism": "-1",  
+			"energy_intensity": "0" }
+		}, 		{ "candidate" : "Rachel Wayne 3",
+		"stats" : { 
+			"military": "1", 
+			"economic_stability": "-4", 
+			"infrastructure": "-3", 
+			"nationalism": "5",  
+			"energy_intensity": "0" }
+		}, 		{ "candidate" : "Juan Hernandez",
+		"stats" : { 
+			"military": "-4", 
+			"economic_stability": "-3", 
+			"infrastructure": "-1", 
+			"nationalism": "-4",  
+			"energy_intensity": "0" }
+		}, 		{ "candidate" : "Julia Mann 2",
+		"stats" : { 
+			"military": "3", 
+			"economic_stability": "3", 
+			"infrastructure": "5", 
+			"nationalism": "-1",  
+			"energy_intensity": "0" }
+		}, 		{ "candidate" : "Melissa Lynn",
+		"stats" : { 
+			"military": "-3", 
+			"economic_stability": "-3", 
+			"infrastructure": "-1", 
+			"nationalism": "1",  
+			"energy_intensity": "5" }
+		}, 		{ "candidate" : "Jules Steinberg",
+		"stats" : { 
+			"military": "1", 
+			"economic_stability": "-5", 
+			"infrastructure": "-1", 
+			"nationalism": "0",  
+			"energy_intensity": "1" }
+		}, 		{ "candidate" : "Karl Ricther",
+		"stats" : { 
+			"military": "-3", 
+			"economic_stability": "4", 
+			"infrastructure": "-5", 
+			"nationalism": "5",  
+			"energy_intensity": "-2" }
+		}, 		{ "candidate" : "Hans Steiner",
+		"stats" : { 
+			"military": "0", 
+			"economic_stability": "2", 
+			"infrastructure": "5", 
+			"nationalism": "1",  
+			"energy_intensity": "5" }
+		}, 		{ "candidate" : "Bejamin Goldstein",
+		"stats" : { 
+			"military": "4", 
+			"economic_stability": "3", 
+			"infrastructure": "-4", 
+			"nationalism": "-3",  
+			"energy_intensity": "5" }
+		}, 		{ "candidate" : "Bernie Maddox",
+		"stats" : { 
+			"military": "2", 
+			"economic_stability": "5", 
+			"infrastructure": "3", 
+			"nationalism": "-1",  
+			"energy_intensity": "4" }
+		}, 		{ "candidate" : "Theresa Maddening",
+		"stats" : { 
+			"military": "-3", 
+			"economic_stability": "1", 
+			"infrastructure": "-5", 
+			"nationalism": "1",  
+			"energy_intensity": "-3" }
+		}, 		{ "candidate" : "Alyssa Lynch",
+		"stats" : { 
+			"military": "5", 
+			"economic_stability": "-4", 
+			"infrastructure": "-3", 
+			"nationalism": "-1",  
+			"energy_intensity": "1" }
+		}, 		{ "candidate" : "Peter Holcombe",
+		"stats" : { 
+			"military": "3", 
+			"economic_stability": "2", 
+			"infrastructure": "0", 
+			"nationalism": "4",  
+			"energy_intensity": "1" }
+		}, 		{ "candidate" : "James Stewart",
+		"stats" : { 
+			"military": "3", 
+			"economic_stability": "-2", 
+			"infrastructure": "-2", 
+			"nationalism": "2",  
+			"energy_intensity": "5" }
+		}, 		{ "candidate" : "Andreas Sanford",
+		"stats" : { 
+			"military": "5", 
+			"economic_stability": "-2", 
+			"infrastructure": "0", 
+			"nationalism": "-2",  
+			"energy_intensity": "-3" }
+		}, 		{ "candidate" : "Audi McPherson",
+		"stats" : { 
+			"military": "-3", 
+			"economic_stability": "2", 
+			"infrastructure": "-2", 
+			"nationalism": "-1",  
+			"energy_intensity": "5" }
+		}, 		{ "candidate" : "Lisa Aaronson",
+		"stats" : { 
+			"military": "5", 
+			"economic_stability": "-3", 
+			"infrastructure": "-1", 
+			"nationalism": "3",  
+			"energy_intensity": "3" }
+		}, 		{ "candidate" : "Jean Paul Rimbaud",
+		"stats" : { 
+			"military": "-1", 
+			"economic_stability": "4", 
+			"infrastructure": "1", 
+			"nationalism": "4",  
+			"energy_intensity": "-5" }
+		}, 		{ "candidate" : "Allen Crozier",
+		"stats" : { 
+			"military": "5", 
+			"economic_stability": "-4", 
+			"infrastructure": "-5", 
+			"nationalism": "1",  
+			"energy_intensity": "-1" }
+		}, 		{ "candidate" : "Francis Beacon",
+		"stats" : { 
+			"military": "3", 
+			"economic_stability": "0", 
+			"infrastructure": "3", 
+			"nationalism": "1",  
+			"energy_intensity": "3" }
+		}, 		{ "candidate" : "Scott Cunningham",
+		"stats" : { 
+			"military": "0", 
+			"economic_stability": "1", 
+			"infrastructure": "-5", 
+			"nationalism": "5",  
+			"energy_intensity": "4" }
+		}, 		{ "candidate" : "Hans Earnhart",
+		"stats" : { 
+			"military": "-2", 
+			"economic_stability": "-4", 
+			"infrastructure": "1", 
+			"nationalism": "1",  
+			"energy_intensity": "0" }
+		}, 		{ "candidate" : "Johnny Golden",
+		"stats" : { 
+			"military": "1", 
+			"economic_stability": "1", 
+			"infrastructure": "3", 
+			"nationalism": "5",  
+			"energy_intensity": "-2" }
+		}, 		{ "candidate" : "Janet Hicks",
+		"stats" : { 
+			"military": "0", 
+			"economic_stability": "-2", 
+			"infrastructure": "-4", 
+			"nationalism": "-5",  
+			"energy_intensity": "-3" }
+		
+		} 
+ ]; 
+
+console.log(candidateArray);
+
+var candidate = document.getElementById('candidate');
+var candid_name = document.getElementById('candid_name');
+var military = document.getElementById('military');
+var economic_stability = document.getElementById('economic_stability');
+var infrastructure = document.getElementById('infrastructure');
+var nationalism = document.getElementById('nationalism');
+var energy_intensity = document.getElementById('energy_intensity');
+
+function favorable(num) {
+	switch(num){
+	case -5:
+		return "deadly opponent";
+	break;
+	case -4:
+		return "strongly opposed";
+	break;
+	case -3:
+		return "opposed";
+	break;
+	case -2:
+		return "unfavorable";
+	break;
+	case -1:
+		return "uneasy";
+	break;
+	case 0:
+		return "neutral";
+	break;
+	case 1:
+		return "nominal support";
+	break;
+	case 2:
+		return "favorable";
+	break;
+	case 3:
+		return "advocate";
+	break;
+	case 4:
+		return "strong advocate";
+
+	break;
+	case 5:
+		return "evangelist";
+	break;
+	default:
+		return "switch error";
+	break;
+	} // end switch
+} // end function
+	
+var flipNewCard = function() {
+	console.log('clicked');
+	var rand = Math.floor(Math.random() * 60);
+
+	candid_name.innerHTML = "<u>name:</u> " + candidateArray[rand].candidate;
+	military.innerHTML = "<u>military:</u> " + candidateArray[rand].stats.military;	
+	economic_stability.innerHTML = "<u>economic_stability:</u> " + candidateArray[rand].stats.economic_stability;	
+	infrastructure.innerHTML = "<u>infrastructure:</u> " + candidateArray[rand].stats.infrastructure;	
+	nationalism.innerHTML = "<u>nationalism:</u> " + candidateArray[rand].stats.nationalism;	
+	energy_intensity.innerHTML = "<u>energy_intensity:</u> " + candidateArray[rand].stats.military;	
+}
+
+document.getElementById('candidate').addEventListener('click', function(e) {
+	flipNewCard(); }, false);
+
+console.log('finished');
+
+</script>
+</body>
+</html>
