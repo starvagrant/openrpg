@@ -55,9 +55,9 @@ function make_select_element($pdo, $name, $size, $table){
 	$result_statement = get_result_statement($pdo, $sql_select); 	
 
 	if ($rows < $size) {
-		$select = "<select name=\"$name\" size=\"$rows\"> \n";
+		$select = "<select class=\"chosen-select\" name=\"$name\" size=\"$rows\"> \n";
 	} else {
-		$select = "<select name=\"$name\" size=\"$size\"> \n";
+		$select = "<select class=\"chosen-select\" name=\"$name\" size=\"$size\"> \n";
 	}
 	
 	$selected = 0;	
@@ -167,5 +167,8 @@ label {
 		</p>
 		<button type="submit"> Submit </button>
 	</form>
-</body>
-</html>
+<script src="jquery-1.11.0.js"></script>
+<script src="js/chosen.jquery.js"></script>
+<script>
+	$('chosen-select').chosen();
+</script>

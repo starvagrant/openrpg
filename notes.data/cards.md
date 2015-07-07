@@ -28,7 +28,7 @@ Action cards
 
 3. **Scandal**
 
-	*Self:* Choose a player with at least one skeleton in their closet for a scandal role. 
+	*Self:* Choose a player with at least one skeleton in their closet for a scandal roll. 
 
 	*Opponent:* Player discards three money cards or adds on skeleton to their closet.
 
@@ -70,7 +70,7 @@ Action cards
 
 10. **Media Blitz**
 
-	*Self:* If you have the least skeletons in your closet, you may place up to two audits from the discard pile. Count the number of skeletons in your closet and total everyone else's. If you have less, draw a number of money cards equal to the difference. If you have more, discard a number of money cards equal to the difference.  
+	*Self:* If you have the least skeletons in your closet, you may pick up to two audits from the discard pile. Count the number of skeletons in your closet and total everyone else's. If you have less, draw a number of money cards equal to the difference. If you have more, discard a number of money cards equal to the difference.  
 
 	*Opponent:* Likewise 
 

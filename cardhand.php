@@ -12,9 +12,9 @@
       <h2>Super Pac</h2>
       <ul>
 	<li>Action Card</li>
-	<li>Primary</li>
-        <li class="hot">Self: Rule Explanation
-        <li id="four">Oppponent: Rule Explantion</li>
+	<li class="card-name">Primary</li>
+        <li class="self"><span class="title">Self:</span> <p>Rule Explanation</p>
+        <li id="opponent"><span class="title">Opponent:</span> <p>Rule Explantion</p>
       </ul>
     </div>
 </body>
