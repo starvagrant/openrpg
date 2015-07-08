@@ -27,7 +27,6 @@
 	<ul>
 	<li class="card-type">Money Card</li>
 	<li class="card-name">Big Bank Bailout</li>
-        <li class="ethics">Dirty Money</li> 
         <li class="amount">$50</li> 
         <li class="quote">A big bank gets money, regardless of performance</li> 
       </ul>
@@ -39,6 +38,8 @@
 	var firstListItems = $('li:first-of-type');
 	var unOrderedLists = $('ul');
 	var button = $('button');
+	var request;
+	var list;
 
 	listItems.hide();
 	firstListItems.show();	
@@ -52,11 +53,39 @@
 	});
 
 	button.on('click', function() {
-		console.log('clicked');
-		$(this).before("<ul><li>New List</ul></li>");
+		var thisButton = $(this);
+		request = $.get('cards.json', function() {
+			console.log("success");
+		})
+		.done(function(data){
+//			console.log(data.length);
+			var rand = data.length + 1;
+			var card = Math.floor(Math.random() * 61);
+			console.log(card);
+			list = '<ul><li class="card-type">'
+			+ data[card].cardtype
+			+ '</li><li class="card-name">'
+			+ data[card].name
+			+ '</li><li class="amount">'
+			+ data[card].amount
+			+ '</li><li class="amount">'
+			+ data[card].quote
+			+ '</li></ul>';
+
+			thisButton.before(list);
+		})
+		.fail(function(){
+			alert("error");
+		})
+		.always(function(){
+			alert("finished");
+		});
+
+		/*
 		$(this).prev().on('mouseover', function(){
 			alert('hovering');
 		});
+		*/
 	});
 </script>
 </body>

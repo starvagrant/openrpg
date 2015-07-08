@@ -558,7 +558,7 @@ Once a player's turn is done, all opponents draw an action card, then contribute
 ### Money
 1. Peanuts			15.
 5. Small Donor			15.
-10. Large Donoar		10.
+10. Large Donor			10.
 20. Deep Pockets		5. 
 
 50. Iranian Oil Money
