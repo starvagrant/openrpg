@@ -1,0 +1,12 @@
+[
+{"cardname": "Primary", "selfrules" : "self", "opponentrules" : "opponent"},
+{"cardname":"Election", "selfrules" : "self", "opponentrules" : "opponent"},
+{"cardname":"Scandal", "selfrules" : "self", "opponentrules" : "opponent"},
+{"cardname":"Debate", "selfrules" : "self", "opponentrules" : "opponent"},
+{"cardname":"Audit", "selfrules" : "self", "opponentrules" : "opponent"},
+{"cardname":"Super Pac", "selfrules" : "self", "opponentrules" : "opponent"},
+{"cardname":"Fundraiser", "selfrules" : "self", "opponentrules" : "opponent"},
+{"cardname":"Backdoor Deal", "selfrules" : "self", "opponentrules" : "opponent"},
+{"cardname":"Rally", "selfrules" : "self", "opponentrules" : "opponent"},
+{"cardname":"Media Blitz", "selfrules" : "self", "opponentrules" : "opponent"}
+]

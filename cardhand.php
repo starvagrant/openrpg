@@ -30,7 +30,8 @@
         <li class="amount">$50</li> 
         <li class="quote">A big bank gets money, regardless of performance</li> 
       </ul>
-	<button> Draw a Card </button>
+	<button id="money"> Draw a Money Card </button>
+	<button id="action"> Draw an Action Card </button>
     </div>
 <script src="jquery-1.11.0.js"></script>
 <script>
@@ -52,41 +53,32 @@
 		firstListItems.show();	
 	});
 
-	button.on('click', function() {
+	button.on('click', function(event) {
 		var thisButton = $(this);
-		request = $.get('cards.json', function() {
+		var cardType = event.target.id;
+		var data = "cards." + cardType + ".json"
+		request = $.get(data, function() {
 			console.log("success");
 		})
 		.done(function(data){
-//			console.log(data.length);
-			var rand = data.length + 1;
-			var card = Math.floor(Math.random() * 61);
+			// generate a random card
+			var card = Math.floor(Math.random() * data.length);
 			console.log(card);
-			list = '<ul><li class="card-type">'
-			+ data[card].cardtype
-			+ '</li><li class="card-name">'
-			+ data[card].name
-			+ '</li><li class="amount">'
-			+ data[card].amount
-			+ '</li><li class="amount">'
-			+ data[card].quote
-			+ '</li></ul>';
+			list = '<ul>\n'
+			for (fields in data[card]){
+				list += '<li class="' + fields + '">' +	data[card][fields] + '</li>\n';
+			}
+			list += '</ul>';
 
-			thisButton.before(list);
+			$(list).insertAfter('ul:last');
 		})
 		.fail(function(){
-			alert("error");
+//			console.log('no data');
 		})
 		.always(function(){
-			alert("finished");
-		});
-
-		/*
-		$(this).prev().on('mouseover', function(){
-			alert('hovering');
-		});
-		*/
-	});
+//			console.log('finished');
+		}); // end request
+	}); // end on function
 </script>
 </body>
 </html>
