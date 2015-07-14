@@ -1,6 +1,7 @@
-var button = $('button');
+var button = $('button');		// Initialize Variables
 
-function makeMenus(){ 	// makes every non-first list item disappear
+function makeMenus(){ 			// UI function 
+								// makes every non-first list item disappear
 
 	var listItems = $('#page li').not('.cardtype');
 	var firstListItems = $('#page li.cardtype');
@@ -16,43 +17,25 @@ function makeMenus(){ 	// makes every non-first list item disappear
 	});
 }
 	
-	makeMenus();
 
-var clickDraw = function(cardType){
-	var list = '<ul>\n';
-		
-	// get a card from the right array
-	switch(cardType){
-		case "money":
-			var cardsInArray = moneyCardArray.length;
-			var randomCardNumber = Math.floor(Math.random() * cardsInArray);
-			var card = moneyCardArray[randomCardNumber];
-		break;
-		case "action":
-			var cardsInArray = actionCardArray.length;
-			var randomCardNumber = Math.floor(Math.random() * cardsInArray);
-			var card = actionCardArray[randomCardNumber];
-		break;
-		default:
-		break;
+// should call Hand.prototype.draw from superpacobjects.js
+var clickDraw = function(Hand) {	// UI function, Hand is the Hand Object
+								// Add Card to Hand div
+
+	var	newlyDrawnCard = Hand.draw();
+	var realReturn = newlyDrawnCard.traits.cardHTML;
 	
-	} // end switch	
-		for (fields in card)
-			{
-				list += '<li class="' + fields + '">' +	card[fields] + '</li>\n';
-			}
-		list += '</ul>';
-		$(list).appendTo('#page');
-		makeMenus();
+	$(realReturn).appendTo('#page');
+	makeMenus();
 
 } // end function
 
 	// initialize hand
-	clickDraw("action"); clickDraw("money");	
+	clickDraw(playerHand); clickDraw(playerHand);	
 
-	button.on('click', function(event){
-		var thisButton = $(this);
-		var cardType = event.target.id;
-		clickDraw(cardType); 
+	// allow further drawing of cards
+	button.on('click', function(){
+		// console.log(cardType);
+		clickDraw(playerHand); 
 	}); // end on function
 

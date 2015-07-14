@@ -24,12 +24,12 @@
 	</div>
 	<div id="page">
 		<h2>Super Pac</h2>
-		<button id="money"> Draw a Money Card </button>
-		<button id="action"> Draw an Action Card </button>
+		<button id="player"> Draw a Card </button>
 	</div>
 <script src="jquery-1.11.0.js"></script>
 <script src="json/cards.json"></script>
 <script src="js/superpacobjects.js"></script>
 <script src="js/superpacui.js"></script>
+<script src="js/superpaclogic.js"></script>
 </body>
 </html>
