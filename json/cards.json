@@ -12,420 +12,601 @@ var actionCardArray = [
 ]
 
 var candidateCardArray = [
-{ "candidate" : "Lindsey Grime",
+{ 
+"cardtype": "candidate",
+"name" : "Lindsey Grime",
 		"stats" : { 
 			"military": "-3", 
 			"economic_stability": "1", 
 			"infrastructure": "3", 
 			"nationalism": "-1",  
 			"energy_intensity": "4" }
-		}, 		{ "candidate" : "John Diligent",
+		},
+
+{ 
+"cardtype": "candidate",
+"name" : "John Diligent",
 		"stats" : { 
 			"military": "3", 
 			"economic_stability": "-4", 
 			"infrastructure": "3", 
 			"nationalism": "0",  
 			"energy_intensity": "0" }
-		}, 		{ "candidate" : "Marilyn McMansion",
+		},
+
+{ 
+"cardtype": "candidate",
+"name" : "Marilyn McMansion",
 		"stats" : { 
 			"military": "1", 
 			"economic_stability": "3", 
 			"infrastructure": "-4", 
 			"nationalism": "2",  
 			"energy_intensity": "-2" }
-		}, 		{ "candidate" : "Gordon Prescott",
+		},
+ 		{ 
+"cardtype": "candidate",
+"name" : "Gordon Prescott",
 		"stats" : { 
 			"military": "-2", 
 			"economic_stability": "2", 
 			"infrastructure": "-1", 
 			"nationalism": "0",  
 			"energy_intensity": "-5" }
-		}, 		{ "candidate" : "Ronald Frump",
+		},
+ 		{ 
+"cardtype": "candidate",
+"name" : "Ronald Frump",
 		"stats" : { 
 			"military": "-5", 
 			"economic_stability": "-2", 
 			"infrastructure": "3", 
 			"nationalism": "0",  
 			"energy_intensity": "-4" }
-		}, 		{ "candidate" : "Ali Johnson",
+		},
+ 		{ 
+"cardtype": "candidate",
+"name" : "Ali Johnson",
 		"stats" : { 
 			"military": "-2", 
 			"economic_stability": "-2", 
 			"infrastructure": "0", 
 			"nationalism": "1",  
 			"energy_intensity": "-5" }
-		}, 		{ "candidate" : "Jonathon Creed",
+		},
+{ 
+"cardtype": "candidate",
+"name" : "Jonathon Creed",
 		"stats" : { 
 			"military": "0", 
 			"economic_stability": "4", 
 			"infrastructure": "1", 
 			"nationalism": "-3",  
 			"energy_intensity": "-2" }
-		}, 		{ "candidate" : "Major Surgery",
+		}, 	
+{ 
+"cardtype": "candidate",
+"name" : "Major Surgery",
 		"stats" : { 
 			"military": "-1", 
 			"economic_stability": "-5", 
 			"infrastructure": "-1", 
 			"nationalism": "-3",  
 			"energy_intensity": "1" }
-		}, 		{ "candidate" : "Alex Campbell",
+		}, 	
+{ 
+"cardtype": "candidate",
+"name" : "Alex Campbell",
 		"stats" : { 
 			"military": "5", 
 			"economic_stability": "4", 
 			"infrastructure": "-2", 
 			"nationalism": "-4",  
 			"energy_intensity": "0" }
-		}, 		{ "candidate" : "Gordon Moore",
+		},
+{ 
+"cardtype": "candidate",
+"name" : "Gordon Moore",
 		"stats" : { 
 			"military": "1", 
 			"economic_stability": "-1", 
 			"infrastructure": "-4", 
 			"nationalism": "-5",  
 			"energy_intensity": "5" }
-		}, 		{ "candidate" : "Tom Halfhill",
+		}, 	
+{ 
+"cardtype": "candidate",
+"name" : "Tom Halfhill",
 		"stats" : { 
 			"military": "-3", 
 			"economic_stability": "-4", 
 			"infrastructure": "-2", 
 			"nationalism": "5",  
 			"energy_intensity": "2" }
-		}, 		{ "candidate" : "Lisa Su",
+		}, 	
+{ 
+"cardtype": "candidate",
+"name" : "Lisa Su",
 		"stats" : { 
 			"military": "-1", 
 			"economic_stability": "-2", 
 			"infrastructure": "5", 
 			"nationalism": "5",  
 			"energy_intensity": "5" }
-		}, 		{ "candidate" : "Gabe Newell",
+		}, 	
+{ 
+"cardtype": "candidate",
+"name" : "Gabe Newell",
 		"stats" : { 
 			"military": "-5", 
 			"economic_stability": "-1", 
 			"infrastructure": "4", 
 			"nationalism": "2",  
 			"energy_intensity": "2" }
-		}, 		{ "candidate" : "Tuan Nguyen",
+		}, 	
+{ 
+"cardtype": "candidate",
+"name" : "Tuan Nguyen",
 		"stats" : { 
 			"military": "-4", 
 			"economic_stability": "-4", 
 			"infrastructure": "2", 
 			"nationalism": "1",  
 			"energy_intensity": "-2" }
-		}, 		{ "candidate" : "Patricia Petrovich",
+		},
+{ 
+"cardtype": "candidate",
+"name" : "Patricia Petrovich",
 		"stats" : { 
 			"military": "-2", 
 			"economic_stability": "1", 
 			"infrastructure": "-4", 
 			"nationalism": "1",  
 			"energy_intensity": "2" }
-		}, 		{ "candidate" : "Penelope Hermann",
+		}, 
+{ 
+"cardtype": "candidate",
+"name" : "Penelope Hermann",
 		"stats" : { 
 			"military": "2", 
 			"economic_stability": "-3", 
 			"infrastructure": "-4", 
 			"nationalism": "4",  
 			"energy_intensity": "-3" }
-		}, 		{ "candidate" : "Hunter Blake",
+		},
+{ 
+"cardtype": "candidate",
+"name" : "Hunter Blake",
 		"stats" : { 
 			"military": "-5", 
 			"economic_stability": "-5", 
 			"infrastructure": "-1", 
 			"nationalism": "-2",  
 			"energy_intensity": "-5" }
-		}, 		{ "candidate" : "Horishi Uyuktati",
+		},
+{ 
+"cardtype": "candidate",
+"name" : "Horishi Uyuktati",
 		"stats" : { 
 			"military": "-5", 
 			"economic_stability": "3", 
 			"infrastructure": "-1", 
 			"nationalism": "5",  
 			"energy_intensity": "2" }
-		}, 		{ "candidate" : "Raul Gonzalez",
+		},
+{ 
+"cardtype": "candidate",
+"name" : "Raul Gonzalez",
 		"stats" : { 
 			"military": "-1", 
 			"economic_stability": "-5", 
 			"infrastructure": "-4", 
 			"nationalism": "-3",  
 			"energy_intensity": "2" }
-		}, 		{ "candidate" : "Captain Obvious",
+		},
+{ 
+"cardtype": "candidate",
+"name" : "Captain Obvious",
 		"stats" : { 
 			"military": "4", 
 			"economic_stability": "-1", 
 			"infrastructure": "3", 
 			"nationalism": "0",  
 			"energy_intensity": "5" }
-		}, 		{ "candidate" : "Squiggle Magoo",
+		}, 
+{ 
+"cardtype": "candidate",
+"name" : "Squiggle Magoo",
 		"stats" : { 
 			"military": "-4", 
 			"economic_stability": "4", 
 			"infrastructure": "0", 
 			"nationalism": "-3",  
 			"energy_intensity": "-1" }
-		}, 		{ "candidate" : "General Dismay",
+		}, 
+{ 
+"cardtype": "candidate",
+"name" : "General Dismay",
 		"stats" : { 
 			"military": "-3", 
 			"economic_stability": "5", 
 			"infrastructure": "1", 
 			"nationalism": "-2",  
 			"energy_intensity": "3" }
-		}, 		{ "candidate" : "Lieutenant Housing",
+		}, 
+{ 
+"cardtype": "candidate",
+"name" : "Lieutenant Housing",
 		"stats" : { 
 			"military": "4", 
 			"economic_stability": "-2", 
 			"infrastructure": "4", 
 			"nationalism": "-3",  
 			"energy_intensity": "2" }
-		}, 		{ "candidate" : "Susun Walker",
+		}, 
+{ 
+"cardtype": "candidate",
+"name" : "Susun Walker",
 		"stats" : { 
 			"military": "0", 
 			"economic_stability": "0", 
 			"infrastructure": "-5", 
 			"nationalism": "0",  
 			"energy_intensity": "2" }
-		}, 		{ "candidate" : "Keisha Sutherland",
+		}, 
+{ 
+"cardtype": "candidate",
+"name" : "Keisha Sutherland",
 		"stats" : { 
 			"military": "1", 
 			"economic_stability": "1", 
 			"infrastructure": "5", 
 			"nationalism": "-2",  
 			"energy_intensity": "-4" }
-		}, 		{ "candidate" : "Malcolm Brown",
+		}, 
+{ 
+"cardtype": "candidate",
+"name" : "Malcolm Brown",
 		"stats" : { 
 			"military": "4", 
 			"economic_stability": "-2", 
 			"infrastructure": "-4", 
 			"nationalism": "-2",  
 			"energy_intensity": "-1" }
-		}, 		{ "candidate" : "Stan Oppenheimer",
+		}, 	
+{ 
+"cardtype": "candidate",
+"name" : "Stan Oppenheimer",
 		"stats" : { 
 			"military": "-4", 
 			"economic_stability": "5", 
 			"infrastructure": "-1", 
 			"nationalism": "3",  
 			"energy_intensity": "1" }
-		}, 		{ "candidate" : "Jamal White",
+		}, 
+{ 
+"cardtype": "candidate",
+"name" : "Jamal White",
 		"stats" : { 
 			"military": "4", 
 			"economic_stability": "5", 
 			"infrastructure": "-4", 
 			"nationalism": "-3",  
 			"energy_intensity": "-5" }
-		}, 		{ "candidate" : "Soledad Cancion",
+		},
+{ 
+"cardtype": "candidate",
+"name" : "Soledad Cancion",
 		"stats" : { 
 			"military": "-3", 
 			"economic_stability": "5", 
 			"infrastructure": "0", 
 			"nationalism": "-3",  
 			"energy_intensity": "-5" }
-		}, 		{ "candidate" : "Julieene Antoinette",
+		}, 
+{ 
+"cardtype": "candidate",
+"name" : "Julieene Antoinette",
 		"stats" : { 
 			"military": "3", 
 			"economic_stability": "3", 
 			"infrastructure": "-4", 
 			"nationalism": "-2",  
 			"energy_intensity": "0" }
-		}, 		{ "candidate" : "Gweneth Macfarland",
+		},
+{ 
+"cardtype": "candidate",
+"name" : "Gweneth Macfarland",
 		"stats" : { 
 			"military": "5", 
 			"economic_stability": "4", 
 			"infrastructure": "-5", 
 			"nationalism": "4",  
 			"energy_intensity": "-4" }
-		}, 		{ "candidate" : "Chad Nicholson ",
+		},
+{ 
+"cardtype": "candidate",
+"name" : "Chad Nicholson ",
 		"stats" : { 
 			"military": "-4", 
 			"economic_stability": "3", 
 			"infrastructure": "0", 
 			"nationalism": "-2",  
 			"energy_intensity": "-5" }
-		}, 		{ "candidate" : "Aaron Butterly",
+		},
+{ 
+"cardtype": "candidate",
+"name" : "Aaron Butterly",
 		"stats" : { 
 			"military": "5", 
 			"economic_stability": "0", 
 			"infrastructure": "-5", 
 			"nationalism": "-2",  
 			"energy_intensity": "-3" }
-		}, 		{ "candidate" : "Aluminum Khan",
+		},
+{ 
+"cardtype": "candidate",
+"name" : "Aluminum Khan",
 		"stats" : { 
 			"military": "1", 
 			"economic_stability": "-3", 
 			"infrastructure": "-3", 
 			"nationalism": "2",  
 			"energy_intensity": "0" }
-		}, 		{ "candidate" : "Pugnacious D",
+		},
+{ 
+"cardtype": "candidate",
+"name" : "Pugnacious D",
 		"stats" : { 
 			"military": "-3", 
 			"economic_stability": "5", 
 			"infrastructure": "-1", 
 			"nationalism": "2",  
 			"energy_intensity": "-4" }
-		}, 		{ "candidate" : "Ellen Degenerate-1",
+		},
+{ 
+"cardtype": "candidate",
+"name" : "Ellen Degenerate-1",
 		"stats" : { 
 			"military": "0", 
 			"economic_stability": "5", 
 			"infrastructure": "1", 
 			"nationalism": "3",  
 			"energy_intensity": "0" }
-		}, 		{ "candidate" : "Victoria Estates-1",
+		},
+{ 
+"cardtype": "candidate",
+"name" : "Victoria Estates-1",
 		"stats" : { 
 			"military": "0", 
 			"economic_stability": "2", 
 			"infrastructure": "-1", 
 			"nationalism": "-1",  
 			"energy_intensity": "0" }
-		}, 		{ "candidate" : "Rachel Wayne 3",
+		},
+{ 
+"cardtype": "candidate",
+"name" : "Rachel Wayne 3",
 		"stats" : { 
 			"military": "1", 
 			"economic_stability": "-4", 
 			"infrastructure": "-3", 
 			"nationalism": "5",  
 			"energy_intensity": "0" }
-		}, 		{ "candidate" : "Juan Hernandez",
+		},
+{ 
+"cardtype": "candidate",
+"name" : "Juan Hernandez",
 		"stats" : { 
 			"military": "-4", 
 			"economic_stability": "-3", 
 			"infrastructure": "-1", 
 			"nationalism": "-4",  
 			"energy_intensity": "0" }
-		}, 		{ "candidate" : "Julia Mann 2",
+		},
+{ 
+"cardtype": "candidate",
+"name" : "Julia Mann 2",
 		"stats" : { 
 			"military": "3", 
 			"economic_stability": "3", 
 			"infrastructure": "5", 
 			"nationalism": "-1",  
 			"energy_intensity": "0" }
-		}, 		{ "candidate" : "Melissa Lynn",
+		},
+{ 
+"cardtype": "candidate",
+"name" : "Melissa Lynn",
 		"stats" : { 
 			"military": "-3", 
 			"economic_stability": "-3", 
 			"infrastructure": "-1", 
 			"nationalism": "1",  
 			"energy_intensity": "5" }
-		}, 		{ "candidate" : "Jules Steinberg",
+		},
+{ 
+"cardtype": "candidate",
+"name" : "Jules Steinberg",
 		"stats" : { 
 			"military": "1", 
 			"economic_stability": "-5", 
 			"infrastructure": "-1", 
 			"nationalism": "0",  
 			"energy_intensity": "1" }
-		}, 		{ "candidate" : "Karl Ricther",
+		},
+{ 
+"cardtype": "candidate",
+"name" : "Karl Ricther",
 		"stats" : { 
 			"military": "-3", 
 			"economic_stability": "4", 
 			"infrastructure": "-5", 
 			"nationalism": "5",  
 			"energy_intensity": "-2" }
-		}, 		{ "candidate" : "Hans Steiner",
+		},
+{ 
+"cardtype": "candidate",
+"name" : "Hans Steiner",
 		"stats" : { 
 			"military": "0", 
 			"economic_stability": "2", 
 			"infrastructure": "5", 
 			"nationalism": "1",  
 			"energy_intensity": "5" }
-		}, 		{ "candidate" : "Bejamin Goldstein",
+		},
+{ 
+"cardtype": "candidate",
+"name" : "Bejamin Goldstein",
 		"stats" : { 
 			"military": "4", 
 			"economic_stability": "3", 
 			"infrastructure": "-4", 
 			"nationalism": "-3",  
 			"energy_intensity": "5" }
-		}, 		{ "candidate" : "Bernie Maddox",
+		},
+{ 
+"cardtype": "candidate",
+"name" : "Bernie Maddox",
 		"stats" : { 
 			"military": "2", 
 			"economic_stability": "5", 
 			"infrastructure": "3", 
 			"nationalism": "-1",  
 			"energy_intensity": "4" }
-		}, 		{ "candidate" : "Theresa Maddening",
+		},
+{ 
+"cardtype": "candidate",
+"name" : "Theresa Maddening",
 		"stats" : { 
 			"military": "-3", 
 			"economic_stability": "1", 
 			"infrastructure": "-5", 
 			"nationalism": "1",  
 			"energy_intensity": "-3" }
-		}, 		{ "candidate" : "Alyssa Lynch",
+		},
+{ 
+"cardtype": "candidate",
+"name" : "Alyssa Lynch",
 		"stats" : { 
 			"military": "5", 
 			"economic_stability": "-4", 
 			"infrastructure": "-3", 
 			"nationalism": "-1",  
 			"energy_intensity": "1" }
-		}, 		{ "candidate" : "Peter Holcombe",
+		},
+{ 
+"cardtype": "candidate",
+"name" : "Peter Holcombe",
 		"stats" : { 
 			"military": "3", 
 			"economic_stability": "2", 
 			"infrastructure": "0", 
 			"nationalism": "4",  
 			"energy_intensity": "1" }
-		}, 		{ "candidate" : "James Stewart",
+		},
+{ 
+"cardtype": "candidate",
+"name" : "James Stewart",
 		"stats" : { 
 			"military": "3", 
 			"economic_stability": "-2", 
 			"infrastructure": "-2", 
 			"nationalism": "2",  
 			"energy_intensity": "5" }
-		}, 		{ "candidate" : "Andreas Sanford",
+		},
+{ 
+"cardtype": "candidate",
+"name" : "Andreas Sanford",
 		"stats" : { 
 			"military": "5", 
 			"economic_stability": "-2", 
 			"infrastructure": "0", 
 			"nationalism": "-2",  
 			"energy_intensity": "-3" }
-		}, 		{ "candidate" : "Audi McPherson",
+		},
+{ 
+"cardtype": "candidate",
+"name" : "Audi McPherson",
 		"stats" : { 
 			"military": "-3", 
 			"economic_stability": "2", 
 			"infrastructure": "-2", 
 			"nationalism": "-1",  
 			"energy_intensity": "5" }
-		}, 		{ "candidate" : "Lisa Aaronson",
+		},
+{ 
+"cardtype": "candidate",
+"name" : "Lisa Aaronson",
 		"stats" : { 
 			"military": "5", 
 			"economic_stability": "-3", 
 			"infrastructure": "-1", 
 			"nationalism": "3",  
 			"energy_intensity": "3" }
-		}, 		{ "candidate" : "Jean Paul Rimbaud",
+		},
+{ 
+"cardtype": "candidate",
+"name" : "Jean Paul Rimbaud",
 		"stats" : { 
 			"military": "-1", 
 			"economic_stability": "4", 
 			"infrastructure": "1", 
 			"nationalism": "4",  
 			"energy_intensity": "-5" }
-		}, 		{ "candidate" : "Allen Crozier",
+		},
+{ 
+"cardtype": "candidate",
+"name" : "Allen Crozier",
 		"stats" : { 
 			"military": "5", 
 			"economic_stability": "-4", 
 			"infrastructure": "-5", 
 			"nationalism": "1",  
 			"energy_intensity": "-1" }
-		}, 		{ "candidate" : "Francis Beacon",
+		},
+{ 
+"cardtype": "candidate",
+"name" : "Francis Beacon",
 		"stats" : { 
 			"military": "3", 
 			"economic_stability": "0", 
 			"infrastructure": "3", 
 			"nationalism": "1",  
 			"energy_intensity": "3" }
-		}, 		{ "candidate" : "Scott Cunningham",
+		},
+{ 
+"cardtype": "candidate",
+"name" : "Scott Cunningham",
 		"stats" : { 
 			"military": "0", 
 			"economic_stability": "1", 
 			"infrastructure": "-5", 
 			"nationalism": "5",  
 			"energy_intensity": "4" }
-		}, 		{ "candidate" : "Hans Earnhart",
+		},
+{ 
+"cardtype": "candidate",
+"name" : "Hans Earnhart",
 		"stats" : { 
 			"military": "-2", 
 			"economic_stability": "-4", 
 			"infrastructure": "1", 
 			"nationalism": "1",  
 			"energy_intensity": "0" }
-		}, 		{ "candidate" : "Johnny Golden",
+		},
+{ 
+"cardtype": "candidate",
+"name" : "Johnny Golden",
 		"stats" : { 
 			"military": "1", 
 			"economic_stability": "1", 
 			"infrastructure": "3", 
 			"nationalism": "5",  
 			"energy_intensity": "-2" }
-		}, 		{ "candidate" : "Janet Hicks",
+		},
+{ 
+"cardtype": "candidate",
+"name" : "Janet Hicks",
 		"stats" : { 
 			"military": "0", 
 			"economic_stability": "-2", 
@@ -498,3 +679,5 @@ var moneyCardArray = [
 {"cardtype": "money", "amount": 40, "name": "Rare Earth Minerals", "quote": "Technology needs its materials, no matter what is costs to extract them."},
 {"cardtype": "money", "amount": 30, "name": "Clandestine Chemical Factory", "quote": "Those pesky US regulations. The supplier moves elsewhere."}
 ]
+
+var playerCardArray = moneyCardArray.concat(actionCardArray);
