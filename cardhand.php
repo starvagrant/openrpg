@@ -45,6 +45,12 @@
 	<button id="action"> Draw an Action Card </button>
     </div>
 <script src="jquery-1.11.0.js"></script>
+<!--
+<script src="json/cards.action.json"></script>
+<script src="json/cards.candidates.json"></script>
+<script src="json/cards.money.json"</script>
+-->
 <script src="js/superpacui.js"></script>
+<script src="js/superpacobjects.js"></script>
 </body>
 </html>

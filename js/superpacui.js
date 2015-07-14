@@ -1,3 +1,4 @@
+
 var button = $('button');
 
 function makeMenus(){ 	// makes every non-first list item disappear

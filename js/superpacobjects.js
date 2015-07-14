@@ -1,3 +1,4 @@
+
 /*
 What are my data structures? 
 	Hands
@@ -6,41 +7,55 @@ What are my data structures?
 	Elections
 	Stats
 */
-function ActionCard(){
+//////////// CONSTRUCTORS //////////////////////////
+
+function ActionCard(){			// constructor
 	this.purpose = "action";
+// 	console.log(this.purpose + " action");
+// 	cardtype, name, self_rules, opponent_rules
 }
-function MoneyCard(){
+function MoneyCard(){			// constructor
 	this.purpose = "money";
+//	console.log(this.purpose + " money");
+//	cardtype, amount, name, quote
 }
-function CandidateCard(){
+function CandidateCard(){			// constructor
+
 	this.purpose = "candidate";
+	console.log(this.purpose + " candidate");
+//	candidate, stats object (military, economic stability, infrastructure, nationalism, energy_infrastructure)
 }
 
 /* Card is a Factory */
-function Card (type, name){
-	this.name = name;
-	if (type == 'action') this.action = new ActionCard();
-	if (type == 'money') this.money = new MoneyCard();
-	if (type == 'candidate') this.candidate = new CandidateCard();
+function Card (cardType, cardName, cardJson){			// constructor
+
+	this.cardName = cardName;
+	this.cardJson = cardJson;
+	if (cardType == 'money') this.traits = new MoneyCard();
+	if (cardType == 'action') this.traits = new ActionCard();
+	if (cardType == 'candidate') this.traits = new CandidateCard();
 }
 
-function Hand(size, name){
-	this.size=size;
-	this.cards= [];
-	for (i = 0; i < size; i++){
-		var newCard = new Card('action', 'debate');
-		this.cards.push(newCard);
-	}
-	console.log('card drawn');
+function Hand(type){			// constructor
+
+	this.type = type;
+	this.cards = [];
+
 }
 
-Hand.prototype.draw = function(size, name){
-	var newCard = new Card('money', '5');
+///////////////// PROTOTYPES /////////////////////////
+Hand.prototype.draw = function(type, name, json){			// prototype
+//	console.log(name);
+//	console.log(type);
+	var newCard = new Card(type, name, json);
 	this.cards.push(newCard);
-	console.log(this.cards);	
+	console.log(this.cards);
 };
 
-var playerHand = new Hand(3, 'action');
-playerHand.draw();
-var candidateHand = new Hand(3, 'candidate');
-candidateHand.draw();
+////////////////// TESTS ////////////////////////
+var playerHand = new Hand('player');
+var blankobject = {};
+playerHand.draw('money', '5', 'json');
+
+var candidateHand = new Hand('candidate');
+candidateHand.draw('candidate', 'Squiggles Magoo', 'json');
