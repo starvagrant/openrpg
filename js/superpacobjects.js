@@ -1,4 +1,3 @@
-
 /*
 What are my data structures? 
 	Hands
@@ -22,7 +21,7 @@ function MoneyCard(){			// constructor
 function CandidateCard(){			// constructor
 
 	this.purpose = "candidate";
-	console.log(this.purpose + " candidate");
+//	console.log(this.purpose + " candidate");
 //	candidate, stats object (military, economic stability, infrastructure, nationalism, energy_infrastructure)
 }
 
@@ -49,7 +48,7 @@ Hand.prototype.draw = function(type, name, json){			// prototype
 //	console.log(type);
 	var newCard = new Card(type, name, json);
 	this.cards.push(newCard);
-	console.log(this.cards);
+//	console.log(this.cards);
 };
 
 ////////////////// TESTS ////////////////////////
@@ -59,3 +58,4 @@ playerHand.draw('money', '5', 'json');
 
 var candidateHand = new Hand('candidate');
 candidateHand.draw('candidate', 'Squiggles Magoo', 'json');
+//console.log('yoyoyo? finsihed');
