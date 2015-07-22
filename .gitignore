@@ -4,3 +4,5 @@ templates
 images
 jquery-1.11.0.js
 js/chosen.jquery.js
+*.png
+*.ttf
