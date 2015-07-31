@@ -50,7 +50,7 @@ while($row = $statement->fetch()){
 	imagettftext($true_image, 20, 0, 10, 190, $true_darkred, 'Ubuntu-C.ttf', 'Nationalism');
 	imagettftext($true_image, 20, 0, 10, 230, $true_darkred, 'Ubuntu-C.ttf', 'Energy');
 
-	imagepng($true_image, "{$row['candid_id']}.png");
+	imagepng($true_image, "candidate{$row['candid_id']}.png");
 	imagedestroy($true_image);
 }
 ?>
