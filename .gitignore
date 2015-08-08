@@ -5,4 +5,6 @@ images
 jquery-1.11.0.js
 js/chosen.jquery.js
 *.png
+*.jpg
 *.ttf
+/netbeans/nbproject/private/

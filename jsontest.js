@@ -1,4 +1,4 @@
-/* 
+/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -22,12 +22,12 @@ function fullConsole(checkVar){
     console.info(checkVar);
     console.table(checkVar);
     console.groupEnd();
-    
+
 }
 function testNotEmpty(checkObj){
     console.assert(isEmpty(checkObj), 'object not empty');
 }
-    
+
 var actionCardArray = [
 {"cardtype": "action", "name": "Primary", "self_rules" : "self", "opponent_rules" : "opponent", "image_src": "dynamic_images/action0.png"},
 {"cardtype": "action", "name":"Election", "self_rules" : "self", "opponent_rules" : "opponent", "image_src": "dynamic_images/action1.png"},
@@ -50,31 +50,34 @@ actionCardArray.sort(randomize);
 //fullConsole(actionCardArray[0]);
 
 var actionHand = [];
-testNotEmpty(actionHand); 
+testNotEmpty(actionHand);
 
 var $draw = $('#draw');
 var $show = $('#show');
 var $hand = $('#hand');
 var $reset = $('#reset');
+var $handList = $('#handList');
 
-$draw.on('click', function() { 
-    //alert('click'); 
+$draw.on('click', function() {
+    //alert('click');
     actionCardArray.sort(randomize);
     actionHand.push(actionCardArray[0]);
+    var newListObject = $('<li/>');
+    var newButton = $('<button/>');
+    newButton.text(actionCardArray[0].name);
+    newListObject.append(newButton);
+    $handList.append(newListObject);
 });
 
-$show.on('click', function() { 
-    //alert('clicked'); 
+$show.on('click', function() {
+    var src;
+    //alert('clicked');
     //fullConsole(actionHand);
     testNotEmpty(actionHand);
     for (var i = 0; i < actionHand.length; i++){
         //fullConsole(actionHand[i]);
-        console.log(actionHand[i].image_src);
-        /*
-        $hand.hide();
-        $hand.attr('src', actionHand[i].image_src);
-        $hand.fadeIn(1000);
-        */
+        console.log(actionHand[i].image_src + ' to display');
+
     }
 });
 
@@ -83,5 +86,5 @@ $reset.on('click', function(){
    actionHand = [];
    testNotEmpty(actionHand);
    fullConsole(actionHand);
-    
+
 });
