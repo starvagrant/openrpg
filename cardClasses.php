@@ -8,7 +8,9 @@
     <title>OO Card Game</title>
 </head>
 <body>
+    
     <div id="playerHand"></div>
+    <div id="focus"></div>
     <div id="candidateHand"></div>
     <div id="actionCards"></div>
     <div id="candidateCards"></div>
