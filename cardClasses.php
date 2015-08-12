@@ -11,6 +11,7 @@
     
     <div id="playerHand"></div>
     <div id="focus"></div>
+    <div id="control-panel"></div>
     <div id="candidateHand"></div>
     <div id="actionCards"></div>
     <div id="candidateCards"></div>
@@ -21,6 +22,8 @@
     <div id="legislate3"></div>
     <div id="legislate4"></div>
     <div id="legislate5"></div>
+    <div id="experiment"></div>
+    
     <script src="jquery-1.11.0.js"></script>
     <script src="cardClasses.js"></script>
 </body>

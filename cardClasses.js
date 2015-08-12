@@ -32,6 +32,7 @@ function getRandomCard(cardArray){
 //fullConsole(actionCardArray[0]);
 
 /* Constructors */
+//////////////////////////////////////////////////////////////// Player's Hand
 function PlayerHand() {
     this.$ = $('#playerHand');
     function draw() {
@@ -59,16 +60,55 @@ function PlayerHand() {
     this.init = init;
 }
 
+////////////////////////////////////////////////////////// Area of Main Focus
 function Focus(){
     this.$ = $('#focus');
     function init(){
-        var ul = $('<ul/>');
-        var li = $('<li/>');
-        li.text('focus area');
-        ul.append(li);
-        this.$.append(ul);
+        this.$.text('Focus Area ');
+        var card = $('<img/>');
+        card.addClass('played-card');
+        card.attr('alt', ' card here ');
+//        card.attr('src', "dynamic_images/action5.png");
+        this.$.append(card);
+        var button = $('<button/>');
+        button.text('play card');
+        button.on('click', function(){
+            var playingCard = getRandomCard(actionCardArray);
+            displayCard(playingCard);
+        });
+        this.$.append(button);
+    }
+    
+    // display a played card in the game's focus area
+    function displayCard(cardJson){
+        var cardDisplayed = $('img.played-card');
+        cardDisplayed.attr('src', cardJson.image_src);
+        console.info('card displayed');
+    }
+    // holds the game's current logic in an object until it's processed
+    this.gameEvent = {};
+    this.init = init;
+    this.displayCard = displayCard;
+}
+/////////////////////////////////////////////////////////////////////// Player's Control Panel
+function ControlPanel(){
+    this.$ = $('#control-panel');
+    function init(){
+        button = $('<button/>');
+        button.text('Take Turn');
+        this.$.append(button);
     }
     this.init = init;
+}
+
+////////////////////////////////////////////////////////////////////// Experimental Area
+function Experiment(){
+    this.$ = $('#experiment');
+    image = $('<img/>');
+//    image.src = "dynamic_images/action5.png";
+    image.attr('src', "dynamic_images/action5.png");
+    
+    this.$.append(image);
 }
 
 PlayerHand = new PlayerHand();
@@ -77,3 +117,14 @@ PlayerHand.init();
 Focus = new Focus();
 Focus.init();
 
+ControlPanel = new ControlPanel();
+ControlPanel.init();
+
+
+//var playingCard = getRandomCard(actionCardArray);
+//Focus.displayCard(playingCard);
+
+//Experiment = new Experiment();
+
+// Personal Note: how do I grab jQuery objects based on their type?
+// How do I write tests?
