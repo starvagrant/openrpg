@@ -2,6 +2,6 @@
 *.jpg
 *.git
 *.svg
+*.ttf
 untracked
 jquery-1.11.0.js
-chosen.jquery.js
