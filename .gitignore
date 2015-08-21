@@ -1,5 +1,7 @@
-notes
-templates
-images
+*.png
+*.jpg
+*.git
+*.svg
+untracked
 jquery-1.11.0.js
-js/chosen.jquery.js
+chosen.jquery.js
