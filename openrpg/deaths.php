@@ -168,7 +168,7 @@ label {
 		<button type="submit"> Submit </button>
 	</form>
 <script src="jquery-1.11.0.js"></script>
-<script src="js/chosen.jquery.js"></script>
+<script src="../js/chosen.jquery.js"></script>
 <script>
 	$('chosen-select').chosen();
 </script>
