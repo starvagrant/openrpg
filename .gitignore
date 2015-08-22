@@ -1,7 +1,8 @@
 *.png
 *.jpg
-*.git
+*.gif
 *.svg
 *.ttf
 untracked
 jquery-1.11.0.js
+/netbeans/nbproject/private/
