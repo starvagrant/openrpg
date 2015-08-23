@@ -1,0 +1,50 @@
+#player-hand-container {
+  background-color: brown;
+  width: 24%;
+  float: left;
+  min-height: 30em;
+  margin-right: 1%;
+}
+
+#center-container {
+  background-color: yellow;
+  width: 48%;
+  float: left;
+  margin-right: 1%;
+  min-height: 30em;
+}
+
+#election-container {
+  background-color: green;
+  width: 24%;
+  float: right;
+  min-height: 30em;  
+}
+
+.hidden {
+	visibility: hidden;	
+}
+
+.collapsed {
+	width: 5%;
+}
+
+.display-block {
+  display: block;
+  height: 8em;
+}
+.rotated-left {
+  -webkit-transform: rotate(-90deg);
+  -moz-transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  -o-transform: rotate(-90deg);
+  -transform: rotate(-90deg);
+}
+
+.rotated-right {
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  -transform: rotate(90deg);
+}

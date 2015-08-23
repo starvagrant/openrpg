@@ -5,4 +5,6 @@
 *.ttf
 untracked
 jquery-1.11.0.js
+images/
 /netbeans/nbproject/private/
+nbproject
