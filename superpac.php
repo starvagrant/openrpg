@@ -45,8 +45,7 @@
 		</div>
 	</div>
     <div id="experiment"></div>
-    
-    <script src="jquery-1.11.0.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="sp_model/superpacModel.js"></script>
     <script src="sp_view/superpacView.js"></script>
     <script src="sp_controller/superpacController.js"></script>
